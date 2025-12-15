@@ -1,43 +1,68 @@
-.gradle
-build/
+# ===============================
+# Java / Gradle
+# ===============================
+*.class
+*.jar
+*.war
+*.ear
+
+/build/
+/out/
+.gradle/
+
+# ===============================
+# Gradle wrapper
+# ===============================
 !gradle/wrapper/gradle-wrapper.jar
-!**/src/main/**/build/
-!**/src/test/**/build/
-.kotlin
 
-### IntelliJ IDEA ###
-.idea/modules.xml
-.idea/jarRepositories.xml
-.idea/compiler.xml
-.idea/libraries/
-*.iws
+# ===============================
+# IDE (IntelliJ IDEA)
+# ===============================
+.idea/
 *.iml
-*.ipr
-out/п
-!**/src/main/**/out/
-!**/src/test/**/out/
 
-### Eclipse ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
+# ===============================
+# Logs
+# ===============================
+logs/
+*.log
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-
-### VS Code ###
-.vscode/
-
-### Mac OS ###
+# ===============================
+# OS
+# ===============================
 .DS_Store
+Thumbs.db
+
+# ===============================
+# JavaDoc (генерируется автоматически)
+# ===============================
+index.html
+allclasses-index.html
+allpackages-index.html
+overview-summary.html
+overview-tree.html
+help-doc.html
+search.html
+serialized-form.html
+element-list
+stylesheet.css
+script.js
+search.js
+search-page.js
+package-search-index.js
+member-search-index.js
+module-search-index.js
+tag-search-index.js
+type-search-index.js
+resources/
+legal/
+script-dir/
+index-files/
+com/
+
+# ===============================
+# Temporary / generated
+# ===============================
+*.tmp
+*.swp
+*.bak

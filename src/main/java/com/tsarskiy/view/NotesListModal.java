@@ -21,6 +21,16 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.function.Consumer;
 
+/**
+ * Модальное окно отображения списка заметок за выбранный день.
+ * <p>
+ * Позволяет:
+ * <ul>
+ *     <li>просматривать список заметок</li>
+ *     <li>удалять заметки</li>
+ *     <li>выбирать заметку для редактирования</li>
+ * </ul>
+ */
 public class NotesListModal {
 
     private final List<Note> notes;
@@ -32,11 +42,22 @@ public class NotesListModal {
     private static final DateTimeFormatter DF =
             DateTimeFormatter.ofPattern("dd.MM.yyyy, HH:mm:ss");
 
+    /**
+     * Создаёт модальное окно списка заметок.
+     *
+     * @param notes    список заметок за день
+     * @param onSelect обработчик выбора заметки
+     */
     public NotesListModal(List<Note> notes, Consumer<Note> onSelect) {
         this.notes = notes;
         this.onSelect = onSelect;
     }
 
+    /**
+     * Отображает модальное окно.
+     *
+     * @param owner родительское окно
+     */
     public void show(Window owner) {
         Stage stage = new Stage();
         stage.initOwner(owner);
@@ -48,7 +69,6 @@ public class NotesListModal {
         root.getStyleClass().add("modal-card");
         root.setPadding(new Insets(18));
 
-        /* ===== HEADER ===== */
         HBox header = new HBox(10);
         header.setAlignment(Pos.CENTER_LEFT);
 
@@ -76,7 +96,6 @@ public class NotesListModal {
             stage.setY(e.getScreenY() - dragOffsetY);
         });
 
-        /* ===== LIST ===== */
         VBox list = new VBox(14);
         list.setPadding(new Insets(4));
 
@@ -107,13 +126,19 @@ public class NotesListModal {
         stage.showAndWait();
     }
 
-    /* ===== CARD ===== */
+    /**
+     * Создаёт карточку отдельной заметки.
+     *
+     * @param note  заметка
+     * @param stage окно списка
+     * @param list  контейнер списка заметок
+     * @return карточка заметки
+     */
     private VBox createCard(Note note, Stage stage, VBox list) {
         VBox card = new VBox(6);
         card.getStyleClass().add("note-item");
         card.setPadding(new Insets(14));
 
-        /* ===== TITLE + DELETE ===== */
         HBox top = new HBox(8);
         top.setAlignment(Pos.CENTER_LEFT);
 
@@ -150,7 +175,6 @@ public class NotesListModal {
 
         top.getChildren().addAll(title, spacer, delete);
 
-        /* ===== CONTENT ===== */
         Label content = new Label(
                 note.getContent() == null || note.getContent().isBlank()
                         ? "Без содержимого"
@@ -169,14 +193,10 @@ public class NotesListModal {
 
         card.getChildren().addAll(top, content, created);
 
-        /* ===== EDIT ===== */
         card.setOnMouseClicked(e -> {
             e.consume();
             stage.close();
-
-            javafx.application.Platform.runLater(() -> {
-                onSelect.accept(note);
-            });
+            javafx.application.Platform.runLater(() -> onSelect.accept(note));
         });
 
         return card;

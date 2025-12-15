@@ -17,6 +17,13 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+/**
+ * Модальное окно создания и редактирования заметки.
+ * <p>
+ * Используется для добавления новой заметки или изменения существующей.
+ * Поддерживает ввод заголовка и текста заметки,
+ * а также сохраняет изменения в {@link Storage}.
+ */
 public class NoteModal {
 
     private final LocalDate date;
@@ -25,6 +32,14 @@ public class NoteModal {
     private final Runnable onSave;
     private Stage stage;
 
+    /**
+     * Создаёт модальное окно заметки.
+     *
+     * @param date    дата, к которой относится заметка
+     * @param note    редактируемая заметка или {@code null} при создании новой
+     * @param storage хранилище заметок
+     * @param onSave  действие, выполняемое после сохранения
+     */
     public NoteModal(LocalDate date, Note note, Storage storage, Runnable onSave) {
         this.date = date;
         this.note = note;
@@ -32,6 +47,11 @@ public class NoteModal {
         this.onSave = onSave;
     }
 
+    /**
+     * Отображает модальное окно.
+     *
+     * @param owner родительское окно
+     */
     public void show(Window owner) {
         stage = new Stage();
         stage.initModality(Modality.WINDOW_MODAL);
@@ -62,7 +82,11 @@ public class NoteModal {
         stage.showAndWait();
     }
 
-
+    /**
+     * Создаёт основной контейнер содержимого модального окна.
+     *
+     * @return контейнер содержимого
+     */
     private VBox createContent() {
         VBox container = new VBox();
         container.getStyleClass().add("modal-content");
@@ -95,6 +119,11 @@ public class NoteModal {
         return container;
     }
 
+    /**
+     * Создаёт форму ввода данных заметки.
+     *
+     * @return контейнер формы
+     */
     private VBox createForm() {
         VBox form = new VBox(20);
         form.getStyleClass().add("modal-body");
@@ -148,6 +177,15 @@ public class NoteModal {
         return form;
     }
 
+    /**
+     * Сохраняет заметку.
+     * <p>
+     * При редактировании обновляет существующую заметку,
+     * при создании — добавляет новую.
+     *
+     * @param title   заголовок заметки
+     * @param content текст заметки
+     */
     private void saveNote(String title, String content) {
         if (title == null || title.trim().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.WARNING);

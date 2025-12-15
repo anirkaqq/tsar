@@ -11,18 +11,51 @@ import javafx.stage.StageStyle;
 
 import java.net.URL;
 
+/**
+ * Главный класс приложения «Царский заметник».
+ * <p>
+ * Является точкой входа в приложение и отвечает за:
+ * <ul>
+ *     <li>инициализацию JavaFX</li>
+ *     <li>выбор начального экрана</li>
+ *     <li>переключение между onboarding и календарём</li>
+ *     <li>настройку внешнего вида окна</li>
+ * </ul>
+ */
 public class Main extends Application {
 
+    /**
+     * Главное окно приложения.
+     */
     private Stage stage;
+
+    /**
+     * Хранилище заметок и настроек приложения.
+     */
     private Storage storage;
 
+    /**
+     * Смещение окна по оси X при перетаскивании.
+     */
     private double dragOffsetX;
+
+    /**
+     * Смещение окна по оси Y при перетаскивании.
+     */
     private double dragOffsetY;
 
+    /**
+     * Точка входа JavaFX-приложения.
+     * <p>
+     * Выполняет инициализацию окна и определяет,
+     * какой экран необходимо показать при запуске.
+     *
+     * @param primaryStage главное окно JavaFX
+     */
     @Override
     public void start(Stage primaryStage) {
         this.stage = primaryStage;
-        this.storage = Storage.getInstance(); //
+        this.storage = Storage.getInstance();
 
         stage.initStyle(StageStyle.TRANSPARENT);
         stage.setTitle("Царский заметник");
@@ -38,6 +71,11 @@ public class Main extends Application {
         stage.centerOnScreen();
     }
 
+    /**
+     * Отображает экран первоначальной настройки приложения.
+     * <p>
+     * Используется при первом запуске или при отсутствии папки хранения.
+     */
     private void showOnboarding() {
         OnboardingView view = new OnboardingView(storage, this::showCalendar);
 
@@ -49,6 +87,9 @@ public class Main extends Application {
         stage.sizeToScene();
     }
 
+    /**
+     * Отображает основной экран календаря с заметками.
+     */
     private void showCalendar() {
         CalendarView view = new CalendarView(storage);
 
@@ -63,6 +104,12 @@ public class Main extends Application {
         stage.centerOnScreen();
     }
 
+    /**
+     * Включает возможность перетаскивания окна мышью
+     * за указанный элемент интерфейса.
+     *
+     * @param dragNode элемент, за который можно перетаскивать окно
+     */
     private void enableWindowDrag(javafx.scene.Node dragNode) {
         dragNode.setOnMousePressed(e -> {
             dragOffsetX = e.getScreenX() - stage.getX();
@@ -75,6 +122,11 @@ public class Main extends Application {
         });
     }
 
+    /**
+     * Применяет CSS-стили к сцене приложения.
+     *
+     * @param scene сцена, к которой применяются стили
+     */
     private void applyStyles(Scene scene) {
         URL css = getClass().getResource("/styles.css");
         if (css != null) {
@@ -82,6 +134,11 @@ public class Main extends Application {
         }
     }
 
+    /**
+     * Точка входа в приложение.
+     *
+     * @param args аргументы командной строки
+     */
     public static void main(String[] args) {
         launch(args);
     }

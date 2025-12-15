@@ -12,18 +12,38 @@ import javafx.stage.DirectoryChooser;
 
 import java.io.File;
 
+/**
+ * Представление стартового экрана приложения (onboarding).
+ * <p>
+ * Используется при первом запуске приложения и позволяет:
+ * <ul>
+ *     <li>ознакомить пользователя с возможностями приложения</li>
+ *     <li>выбрать директорию для локального хранения данных</li>
+ * </ul>
+ */
 public class OnboardingView {
 
     private final VBox root;
     private final Storage storage;
     private final Runnable onComplete;
 
+    /**
+     * Создаёт экран первоначальной настройки приложения.
+     *
+     * @param storage    хранилище настроек и данных
+     * @param onComplete действие, выполняемое после завершения onboarding
+     */
     public OnboardingView(Storage storage, Runnable onComplete) {
         this.storage = storage;
         this.onComplete = onComplete;
         this.root = createView();
     }
 
+    /**
+     * Создаёт основной интерфейс onboarding-экрана.
+     *
+     * @return корневой контейнер представления
+     */
     private VBox createView() {
         VBox background = new VBox();
         background.setAlignment(Pos.CENTER);
@@ -56,6 +76,13 @@ public class OnboardingView {
         return background;
     }
 
+    /**
+     * Открывает диалог выбора директории хранения данных.
+     * <p>
+     * После выбора директории сохраняет путь,
+     * отмечает onboarding как пройденный
+     * и запускает дальнейшую инициализацию приложения.
+     */
     private void chooseStorageDirectory() {
         DirectoryChooser chooser = new DirectoryChooser();
         File dir = chooser.showDialog(root.getScene().getWindow());
@@ -66,6 +93,11 @@ public class OnboardingView {
         onComplete.run();
     }
 
+    /**
+     * Создаёт заголовок onboarding-экрана.
+     *
+     * @return контейнер заголовка
+     */
     private VBox createHeader() {
         VBox box = new VBox(16);
         box.setAlignment(Pos.CENTER);
@@ -94,6 +126,11 @@ public class OnboardingView {
         return box;
     }
 
+    /**
+     * Создаёт блок с описанием возможностей приложения.
+     *
+     * @return контейнер с функциональными возможностями
+     */
     private HBox createFeatures() {
         HBox box = new HBox(20);
         box.setAlignment(Pos.CENTER);
@@ -109,6 +146,14 @@ public class OnboardingView {
         return box;
     }
 
+    /**
+     * Создаёт карточку отдельной возможности приложения.
+     *
+     * @param icon  иконка возможности
+     * @param title заголовок
+     * @param text  описание
+     * @return карточка возможности
+     */
     private VBox feature(SVGPath icon, String title, String text) {
         VBox card = new VBox(14);
         card.getStyleClass().add("feature-card");
@@ -140,15 +185,17 @@ public class OnboardingView {
         d.setAlignment(Pos.TOP_CENTER);
         d.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
 
-
         VBox.setMargin(d, new Insets(4, 0, 0, 0));
 
         card.getChildren().addAll(iconCircle, t, d);
         return card;
     }
 
-
-
+    /**
+     * Создаёт информационный блок о локальном хранении данных.
+     *
+     * @return контейнер с информацией о хранилище
+     */
     private VBox createStorageInfo() {
         VBox box = new VBox(10);
         box.getStyleClass().add("storage-info-box");
@@ -167,6 +214,11 @@ public class OnboardingView {
         return box;
     }
 
+    /**
+     * Возвращает корневой узел onboarding-экрана.
+     *
+     * @return корневой контейнер
+     */
     public VBox getView() {
         return root;
     }
