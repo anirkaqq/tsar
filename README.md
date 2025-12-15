@@ -39,4 +39,4 @@
 
 #### Через Gradle:
 ```bash
-gradlew run
+gradle run
