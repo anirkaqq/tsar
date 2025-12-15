@@ -1,0 +1,466 @@
+/* ===================================================== */
+/* ===================== GLOBAL ======================== */
+/* ===================================================== */
+
+.root {
+    -fx-background-color: #020617;
+    -fx-font-family: "Cormorant Garamond", serif;
+}
+
+/* ===================================================== */
+/* =================== ONBOARDING ====================== */
+/* ===================================================== */
+
+.onboarding-card {
+    -fx-background-color: radial-gradient(
+        center 50% 0%,
+        radius 120%,
+        #111827,
+        #020617
+    );
+    -fx-border-color: #EAB308;
+    -fx-border-width: 2;
+    -fx-border-radius: 18;
+    -fx-background-radius: 18;
+    -fx-padding: 32;
+}
+
+.exit-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #EAB308;
+    -fx-font-size: 18px;
+    -fx-cursor: hand;
+}
+.exit-button:hover {
+    -fx-text-fill: #FACC15;
+}
+
+/* crown */
+
+.crown-circle {
+    -fx-background-color: linear-gradient(to bottom, #c59810, #d3a418);
+    -fx-background-radius: 999;
+    -fx-min-width: 100;
+    -fx-min-height: 100;
+    -fx-max-width: 100;
+    -fx-max-height: 100;
+}
+
+.crown-icon {
+    -fx-fill: none;
+    -fx-stroke: #000000;
+    -fx-stroke-width: 2;
+    -fx-stroke-line-cap: round;
+    -fx-stroke-line-join: round;
+}
+
+/* text */
+
+.onboarding-title {
+    -fx-text-fill: #EAB308;
+    -fx-font-size: 40px;
+    -fx-font-weight: 100;
+}
+
+.onboarding-subtitle {
+    -fx-text-fill: #D1D5DB;
+    -fx-font-size: 18px;
+}
+
+/* feature cards */
+
+.feature-card {
+    -fx-background-color: #111827;
+    -fx-border-color: rgba(234,179,8,0.3);
+    -fx-border-radius: 14;
+    -fx-background-radius: 14;
+    -fx-padding: 20;
+}
+
+.feature-title {
+    -fx-text-fill: #EAB308;
+    -fx-font-size: 17px;
+}
+
+.feature-description {
+    -fx-text-fill: #9CA3AF;
+    -fx-font-size: 14px;
+}
+
+/* storage */
+
+.storage-info-box {
+    -fx-background-color: rgba(234,179,8,0.08);
+    -fx-border-color: rgba(234,179,8,0.3);
+    -fx-border-radius: 16;
+    -fx-background-radius: 16;
+    -fx-padding: 28;
+}
+
+.storage-info-title {
+    -fx-text-fill: #EAB308;
+    -fx-font-size: 30px;
+    -fx-font-weight: 100;
+}
+
+.storage-info-text {
+    -fx-text-fill: #D1D5DB;
+    -fx-font-size: 16px;
+}
+
+.storage-info-subtext {
+    -fx-text-fill: #9CA3AF;
+    -fx-font-size: 12px;
+}
+
+/* buttons */
+
+.onboarding-button {
+    -fx-background-color: linear-gradient(to bottom, #c59810, #d3a418);
+    -fx-text-fill: #000000;
+    -fx-font-size: 18px;
+    -fx-font-weight: 600;
+    -fx-padding: 18 24;
+    -fx-background-radius: 16;
+    -fx-pref-width: 520;
+}
+.onboarding-button:hover {
+    -fx-background-color: #FDE047;
+}
+
+/* ===================================================== */
+/* ===================== CALENDAR ====================== */
+/* ===================================================== */
+
+.calendar-screen {
+    -fx-background-color: transparent;
+}
+
+.calendar-card {
+    -fx-background-color: radial-gradient(
+        center 50% 0%,
+        radius 120%,
+        #111827,
+        #020617
+    );
+    -fx-border-color: #EAB308;
+    -fx-border-width: 2;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-padding: 32;
+}
+
+/* header */
+
+.calendar-title {
+    -fx-text-fill: #EAB308;
+    -fx-font-size: 22px;
+    -fx-font-weight: 600;
+}
+
+.calendar-month {
+    -fx-text-fill: #FACC15;
+    -fx-font-size: 18px;
+    -fx-font-weight: 600;
+}
+
+.calendar-weekday {
+    -fx-text-fill: #EAB308;
+    -fx-font-weight: 600;
+}
+
+/* navigation */
+
+.calendar-nav {
+    -fx-background-color: transparent;
+    -fx-border-color: rgba(234,179,8,0.35);
+    -fx-border-width: 1.5;
+    -fx-border-radius: 12;
+    -fx-padding: 10;
+}
+.calendar-nav:hover {
+    -fx-background-color: rgba(234,179,8,0.15);
+}
+
+.calendar-nav-icon {
+    -fx-stroke: #EAB308;
+    -fx-fill: none;
+}
+
+/* days */
+
+.calendar-day {
+    -fx-background-color: rgba(2,6,23,0.9);
+    -fx-border-color: rgba(148,163,184,0.35);
+    -fx-border-width: 2;
+    -fx-border-radius: 16;
+    -fx-background-radius: 16;
+}
+
+.calendar-day:hover {
+    -fx-border-color: rgba(234,179,8,0.6);
+    -fx-background-color: rgba(17,24,39,0.95);
+}
+
+.calendar-day.today {
+    -fx-border-color: #FACC15;
+}
+
+.calendar-day.selected {
+    -fx-border-color: #EAB308;
+    -fx-background-color: rgba(234,179,8,0.25);
+}
+
+.calendar-day-number {
+    -fx-text-fill: #E5E7EB;
+    -fx-font-size: 18px;
+    -fx-font-weight: 600;
+}
+
+.calendar-note-icon {
+    -fx-stroke: #EAB308;
+    -fx-fill: none;
+}
+
+/* add note button */
+
+.add-note-button {
+    -fx-background-color: linear-gradient(to bottom, #c59810, #d3a418);
+    -fx-text-fill: #000000;
+    -fx-font-size: 16px;
+    -fx-font-weight: 600;
+    -fx-padding: 14 28;
+    -fx-background-radius: 14;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(234,179,8,0.45), 16, 0.35, 0, 4);
+}
+
+.add-note-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #c59810, #d3a418);
+    -fx-effect: dropshadow(gaussian, rgba(234,179,8,0.85), 22, 0.45, 0, 6);
+}
+
+.add-note-button:disabled {
+    -fx-opacity: 0.45;
+    -fx-effect: none;
+}
+
+/* ===================================================== */
+/* ===================== NOTE MODAL ==================== */
+/* ===================================================== */
+
+.modal-content {
+    -fx-background-color: radial-gradient(
+        center 50% 0%,
+        radius 120%,
+        #111827,
+        #020617
+    );
+    -fx-border-color: #EAB308;
+    -fx-border-width: 2;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+}
+
+/* header */
+
+.modal-header {
+    -fx-border-color: rgba(234,179,8,0.35);
+    -fx-border-width: 0 0 1.5 0;
+}
+
+.modal-title {
+    -fx-text-fill: #EAB308;
+    -fx-font-size: 22px;
+    -fx-font-weight: 600;
+}
+
+.modal-close-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 6;
+}
+.modal-close-button:hover {
+    -fx-background-color: rgba(234,179,8,0.15);
+}
+
+/* body */
+
+.modal-body {
+    -fx-background-color: transparent;
+}
+
+.form-label {
+    -fx-text-fill: #FACC15;
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+}
+
+/* input */
+
+.form-input {
+    -fx-background-color: rgba(2,6,23,0.9);
+    -fx-text-fill: #E5E7EB;
+    -fx-prompt-text-fill: #9CA3AF;
+    -fx-border-color: rgba(148,163,184,0.35);
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-padding: 12 14;
+}
+.form-input:focused {
+    -fx-border-color: #EAB308;
+}
+
+/* textarea — финальная версия */
+
+.form-textarea {
+    -fx-background-color: rgba(2,6,23,0.9);
+    -fx-text-fill: #E5E7EB;
+    -fx-prompt-text-fill: #9CA3AF;
+    -fx-border-color: rgba(148,163,184,0.35);
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-padding: 12;
+}
+
+.form-textarea:focused {
+    -fx-border-color: #EAB308;
+}
+
+/* internal */
+
+.form-textarea .scroll-pane,
+.form-textarea .scroll-pane .viewport,
+.form-textarea .scroll-pane .content,
+.form-textarea .corner {
+    -fx-background-color: transparent;
+}
+
+.form-textarea .content {
+    -fx-background-color: rgba(2,6,23,0.9);
+    -fx-background-radius: 12;
+}
+
+/* buttons */
+.close-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 6;
+}
+
+.close-button:hover {
+    -fx-background-color: rgba(234,179,8,0.15);
+}
+
+.icon-gold {
+    -fx-stroke: #EAB308;
+    -fx-fill: none;
+}
+
+.modal-button {
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-padding: 10 18;
+    -fx-background-radius: 12;
+}
+
+.modal-button.cancel {
+    -fx-background-color: transparent;
+    -fx-border-color: rgba(234,179,8,0.4);
+    -fx-text-fill: #FACC15;
+}
+
+.modal-button.submit {
+    -fx-background-color: #EAB308;
+    -fx-text-fill: #000000;
+}
+.modal-button.submit:hover {
+    -fx-background-color: #FACC15;
+}
+.calendar-holiday-icon {
+    -fx-stroke: #FACC15;
+    -fx-fill: none;
+}
+.calendar-day.holiday {
+    -fx-border-color: #FACC15;
+    -fx-border-width: 2.5;
+    -fx-background-color: rgba(234,179,8,0.12);
+}
+
+.calendar-day.holiday:hover {
+    -fx-background-color: rgba(234,179,8,0.22);
+}
+.calendar-info {
+    -fx-text-fill: #FACC15;
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-padding: 6 12;
+    -fx-background-color: rgba(234,179,8,0.08);
+    -fx-border-color: rgba(234,179,8,0.35);
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+}
+/* ===== MODAL ===== */
+
+.modal-card {
+    -fx-background-color: linear-gradient(to bottom, #0b1220, #050914);
+    -fx-border-color: #f5c400;
+    -fx-border-width: 2;
+    -fx-border-radius: 18;
+    -fx-background-radius: 18;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 30, 0, 0, 8);
+}
+
+.modal-title {
+    -fx-text-fill: #f5c400;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.modal-scroll {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.modal-scroll .viewport {
+    -fx-background-color: transparent;
+}
+
+/* ===== NOTE ITEM ===== */
+
+.note-item {
+    -fx-background-color: rgba(255,255,255,0.03);
+    -fx-border-color: rgba(255,255,255,0.15);
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-padding: 10;
+}
+
+.note-title {
+    -fx-text-fill: #f5c400;
+    -fx-font-weight: bold;
+}
+
+.note-content {
+    -fx-text-fill: #d0d0d0;
+    -fx-font-size: 13px;
+}
+
+.modal-empty {
+    -fx-text-fill: #888;
+    -fx-font-style: italic;
+}
+.note-delete-button:hover {
+    -fx-background-color: rgba(239,68,68,0.15);
+    -fx-background-radius: 8;
+}
+
+/* ===== CROWN FOR CALENDAR DAYS ===== */
+
+.calendar-crown-icon {
+    -fx-fill: none;
+    -fx-stroke: #EAB308; /* золотая */
+    -fx-stroke-width: 2;
+    -fx-stroke-line-cap: round;
+    -fx-stroke-line-join: round;
+}
